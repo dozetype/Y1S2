@@ -9,7 +9,7 @@
 // All of the results are cumulative.
 
 // (i) p = 100;(ERROR, cannot change address) number = 8
-//  (a) number=8 (b) &number=7700 (c) p=3478 (d) &p=Address for pointer p (e) *p=uninitialized value
+//  (a) number=8 (b) &number=7700 (c) p=100 (d) &p=Address for pointer p (e) *p=uninitialized value
 
 // (ii) number = p
 //  cannot assign *int to int
@@ -90,22 +90,16 @@ void digitValue2(int num, int k, int *result){
 
 //Question 3
 int extOddDigits1(int num){
-    int storeOdd[100] = {};
-    int curr=0, index=0;
-    int ans = 0;
-    while(num != 0){
-        curr = num%10;
-        if(curr%2==1){
-            storeOdd[index] = curr;
-            index += 1;
+    int power=1, total=0, digit;
+    while(num>0){
+        digit = num%10;
+        num/=10;
+        if(digit%2==1){
+            total += digit*power;
+            power*=10;
         }
-        num /= 10;
     }
-    if(!index) return -1;
-    for(int i=index-1; i>=0; i--){
-        ans = ans*10 + storeOdd[i];
-    }
-    return ans;
+    return (power==1) ? -1:total;
 }
 void extOddDigits2(int num, int *result){
     *result = extOddDigits1(num);
