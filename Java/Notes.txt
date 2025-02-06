@@ -1,0 +1,6 @@
+static method cannot use instance var and methods, but converse works.
+
+
+compiling java file: javac bruh.java
+Running normal java: java bruh
+Running java thats in package: java package.bruh

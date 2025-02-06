@@ -1,35 +1,29 @@
 #include <stdio.h>
-int gcd1(int num1, int num2);
-void computeNetPay();
+#define M 10
+int matTriSum(int x[M][M], int n);
 
-int main()
-{    
-   return 0;
+int main(){
+    int x[M][M];
+    int n,i,j,s;
+    printf("Enter array (nxn) size (n<=10): \n");
+    scanf("%d",&n);
+    for (i=0;i<n;i++) {
+        printf("Enter row %d: \n",i);
+        for (j=0;j<n;j++)
+        scanf("%d",&x[i][j]);
 }
-int gcd1(int num1, int num2)  
+    s=matTriSum(x,n);
+    printf("The sum is: %d\n",s);
+    return 0;
+}
+
+int matTriSum(int x[M][M], int n)
 {
-    int gcd=num1;
-    if(num1>num2) gcd = num2;
-    while(num1%gcd!=0 || num2%gcd!=0){
-        gcd--;
+    int sum = 0;
+    for(int i=0; i<n; i++){
+        for(int j=i; j<n; j++){
+            sum += x[i][j];
+        }
     }
-    return gcd;
-}
-
-void computeNetPay(){
-    int hours;
-    float pay, tax;
-    printf("Enter hours of work: \n");
-    scanf("%d", &hours);
-    if(hours>40) pay = 40*6 + (hours-40)*9;
-    else pay = hours*6;
-    if(pay<=1000) tax=pay*0.1;
-    else if(pay<=1500) tax=pay*0.2;
-    else tax=pay*0.3;
-    printf("Gross pay=%.2f", pay);
-    printf("Tax=%.2f", tax);
-    printf("Net pay=%.2f", pay-tax);
-    
-
-
+    return sum;
 }
