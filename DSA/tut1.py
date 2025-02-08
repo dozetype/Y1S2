@@ -115,7 +115,8 @@ class LinkedList:
         currData = currNode.data
         while(currNode.next):
             if(currNode.next.data == currData):
-                self.removeIndex(index)
+                # self.removeIndex(index)
+                currNode.next = currNode.next.next
             else:
                 index+=1
                 currNode = currNode.next
@@ -150,6 +151,6 @@ for i in range(len(input)):
 LList.removeDuplicatesSorted()
 LList.walkPrint()
 
-print("Question 4")
+print("Question 4, will create 2 small circular linked list")
 # LList.circular()
 # LList.walkPrint()

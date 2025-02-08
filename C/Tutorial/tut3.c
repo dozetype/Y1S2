@@ -12,44 +12,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// #define SIZE 4
-// void qn1();
-// void qn2(int ar[][SIZE]);
-// void qn3(int ar[][SIZE]);
+#define SIZE 4
+void qn1();
+void qn2(int ar[][SIZE]);
+void qn3(int ar[][SIZE]);
 
-// int main(void){
-//     int ar[4][4] = {
-//         {1, 2, 3, 4},
-//         {5, 1, 2, 2},
-//         {6, 3, 4, 4},
-//         {7, 5, 6, 7}
-//     };
-//     // qn2(ar);
-//     qn3(ar);
-// }
+int main(void){
+    int ar[4][4] = {
+        {1, 2, 3, 4},
+        {5, 1, 2, 2},
+        {6, 3, 4, 4},
+        {7, 5, 6, 7}
+    };
+    qn1();
+    // qn2(ar);
+    // qn3(ar);
+}
 
-// void qn1(){
-//     int N, histStart=0;
-//     int nums[10];
-//     printf("Enter the histogram size: ");
-//     scanf("%d", &N);
-//     for(int i=0; i<N; i++){
-//         nums[(rand()%100)/10] += 1;
-//     }
-//     printf("%d - %d    |", histStart, histStart+9);
-//     for(int i=0; i<nums[0]; i++){
-//         putchar('*');
-//     }
-//     putchar('\n');
+void qn1(){
+    int N, histStart=0;
+    int nums[10] = {};
+    printf("Enter the histogram size: ");
+    scanf("%d", &N);
+    for(int i=0; i<N; i++){
+        nums[(rand()%100)/10] += 1;
+    }
+    printf("%d - %d    |", histStart, histStart+9);
+    for(int i=0; i<nums[0]; i++){
+        putchar('*');
+    }
+    putchar('\n');
     
-//     for(int i=1; i<10; i++){
-//         printf("%d - %d  |", histStart+(10*i), histStart+(10*i)+9);
-//         for(int j=0; j<nums[i]; j++){
-//             putchar('*');
-//         }
-//         putchar('\n');
-//     }
-// }
+    for(int i=1; i<10; i++){
+        printf("%d - %d  |", histStart+(10*i), histStart+(10*i)+9);
+        for(int j=0; j<nums[i]; j++){
+            putchar('*');
+        }
+        putchar('\n');
+    }
+}
 
 // void qn2(int ar[][SIZE]){
 //     int arT[4][4];
@@ -89,33 +90,33 @@
 // }
 
 
-void add1(int ar[], int size);
-int main(){
-    int array[3][4];
-    int h,k;
-    for (h = 0; h < 3; h++)
-        for (k = 0; k < 4; k++)
-            scanf("%d", &array[h][k]);
+// void add1(int ar[], int size);
+// int main(){
+//     int array[3][4];
+//     int h,k;
+//     for (h = 0; h < 3; h++)
+//         for (k = 0; k < 4; k++)
+//             scanf("%d", &array[h][k]);
 
-    //
-    add1(array[0], 12); //same thing would happen as each row is just linked tgt,
-// and array[0] is just a pointer to the head
-    //
-    // for (h = 0; h < 3; h++) /* line a */
-    //     add1(array[h], 4); //addition of 1 is done by add1 fn, passing each row of 4 into it
-    for (h = 0; h < 3; h++) {
-        for (k = 0; k < 4; k++)
-            printf("%10d", array[h][k]);
-        putchar('\n');
-    }
-    return 0;
-}
+//     //
+//     add1(array[0], 12); //same thing would happen as each row is just linked tgt,
+// // and array[0] is just a pointer to the head
+//     //
+//     // for (h = 0; h < 3; h++) /* line a */
+//     //     add1(array[h], 4); //addition of 1 is done by add1 fn, passing each row of 4 into it
+//     for (h = 0; h < 3; h++) {
+//         for (k = 0; k < 4; k++)
+//             printf("%10d", array[h][k]);
+//         putchar('\n');
+//     }
+//     return 0;
+// }
 
-void add1(int ar[], int size){
-    int k;
-    for (k = 0; k < size; k++)
-        ar[k]++;
-}
+// void add1(int ar[], int size){
+//     int k;
+//     for (k = 0; k < size; k++)
+//         ar[k]++;
+// }
 
 
 //////////////////////////////////////test//////////////////////////////////

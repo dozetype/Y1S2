@@ -1,3 +1,6 @@
+//string in c is just the address of array
+//a[0] == *a, a[i] == *(a+i)
+//char *end = a+strlen(a)-1 will go to last element use *end to index it.
 /////////////////Question 1/////////////////////////
 
 #include <stdio.h>
