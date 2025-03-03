@@ -2,155 +2,107 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.prev = None
 
-class LinkedList:
+class DoublyLinkedList:
     def __init__(self):
-        self.head = None #pointer to next Node
-
-    def insertFront(self, data):
-        newNode = Node(data)
-        newNode.next = self.head
-        self.head = newNode
-
-    def insertEnd(self, data):
-        newNode = Node(data)
-        if(self.head is None): #if theres nothing in LL
-            newNode.next = None
-            self.head = newNode
+        self.head = None
+        self.size = 0
+       
+    def printList(self):
+        cur = self.head
+        if cur is None:
+            print("Empty")
             return
-
-        currNode = self.head
-        while(currNode.next): #walk to last node
-            currNode = currNode.next
-        currNode.next = newNode
-
-    def insertIndex(self, data, index):
-        if(index==0):
-            self.insertFront(data)
-            return
-        
-        pos = 0
-        currNode = self.head
-        while(currNode and pos<index-1): #walk to index-1
-            currNode = currNode.next
-            pos+=1
-
-        if(currNode):
-            newNode = Node(data)
-            newNode.next = currNode.next
-            currNode.next = newNode
+        while cur is not None:
+            print(cur.data, end="  ")
+            cur = cur.next
+        print("")
+       
+    def findNode(self, index):
+        if index < 0 or index >= self.size:
+            raise ValueError("Invalid position")
+       
+        cur = self.head
+        while index > 0:
+            cur = cur.next
+            index -= 1
+        return cur
+       
+    def insertNode(self, index, data):
+        if index < 0 or index > self.size:
+            raise ValueError("Invalid position")
+           
+        new_node = Node(data)
+       
+        if index == 0:
+            new_node.next = self.head
+            if self.head:
+                self.head.prev = new_node
+            self.head = new_node
+           
         else:
-            print("Didn't Insert")
+            prev_node = self.findNode(index - 1)
+            new_node.prev = prev_node
+            new_node.next = prev_node.next
+            if prev_node.next:
+                prev_node.next.prev = new_node
+            prev_node.next = new_node
+       
+        self.size += 1
+       
+    def removeNode(self, index):
+        if index < 0 or index >= self.size:
+            raise ValueError("Invalid position")
+            
+        if self.head is None:
+            raise ValueError("List is empty")
+           
+        if index == 0:
+            self.head = self.head.next
+            if self.head:
+                self.head.prev = None
+            self.size -= 1
+            return True
+           
+        current = self.findNode(index)
+        current.prev.next = current.next
+        if current.next:
+            current.next.prev = current.prev
+        self.size -= 1
+        return True
 
-    def removeBegin(self):
-        if(not self.head):
-            return
-        self.head = self.head.next
+def reverseDoublyList(head):
+    currNode = head
+    newhead = None
+    while(currNode):
+        temp = currNode.prev
+        newhead = temp
+        currNode.prev = currNode.next
+        currNode.next = temp
+        currNode = temp
+        if(currNode.prev is None):
+            newhead = currNode
+    return currNode
 
-    def removeEnd(self):
-        if(not self.head):
-            return
-        currNode = self.head
-        while(currNode.next and currNode.next.next):
-            currNode = currNode.next
-        currNode.next = None #dk why cannot just currNode = None
-
-    def removeIndex(self, index):
-        if(index==0): 
-            self.removeBegin()
-            return
-
-        curr = 0
-        currNode = self.head
-        while(currNode.next and curr<index-1):
-            curr += 1
-            currNode = currNode.next
-        if(currNode.next):
-            currNode.next = currNode.next.next
-        else:
-            print("Didn't remove")
-
-    def walkPrint(self):
-        currNode = self.head
-        while(currNode):
-            print(currNode.data, end=" ")
-            currNode = currNode.next
-        print("\n")
-
-    def size(self):
-        count = 0
-        currNode = self.head
-        while(currNode):
-            count+=1
-            currNode = currNode.next
-        return count
-    
-    def moveEvenItemsToBack(self): #qn 1
-        index = 0
-        size = self.size()
-        currNode = self.head
-        for i in range(size):
-            if(currNode.data%2==0):
-                self.insertEnd(currNode.data)
-                self.removeIndex(index)
-            else:
-                index+=1 #only index++ if currNode is odd
-            currNode = currNode.next
-    
-    def moveMaxToFront(self): #qn 2
-        index = 0
-        currNode = self.head
-        maxData = 0
-        for i in range(self.size()):
-            if(currNode.data > maxData):
-                index = i
-                maxData = currNode.data
-            currNode = currNode.next
-        self.removeIndex(index)
-        self.insertFront(maxData)
-
-    def removeDuplicatesSorted(self): #qn 3
-        index = 1
-        currNode = self.head
-        currData = currNode.data
-        while(currNode.next):
-            if(currNode.next.data == currData):
-                # self.removeIndex(index)
-                currNode.next = currNode.next.next
-            else:
-                index+=1
-                currNode = currNode.next
-                currData = currNode.data
-
-    def circular(self):
-        currNode = self.head
-        while(currNode.next):
-            currNode = currNode.next
-        currNode.next = self.head
-
-
-LList = LinkedList()
-input = [2, 7, 18, 3, 4, 15]
-# input = list(input.strip().split(','))
-for i in range(len(input)):
-    LList.insertEnd(input[i])
-# LList.insertIndex(, 3)
-print("Question 1")
-LList.moveEvenItemsToBack()
-LList.walkPrint()
-
-print("Question 2")
-LList.moveMaxToFront()
-LList.walkPrint()
-
-print("Question 3")
-LList = LinkedList()
-input = [1,1,1,2,4,4,5,5,6,6,6]
-for i in range(len(input)):
-    LList.insertEnd(input[i])
-LList.removeDuplicatesSorted()
-LList.walkPrint()
-
-print("Question 4, will create 2 small circular linked list")
-# LList.circular()
-# LList.walkPrint()
+if __name__ == "__main__":
+    doubly_linked_list = DoublyLinkedList()
+   
+    print("Enter a list of numbers, terminated by any non-digit character: ", end="")
+    input_string = input()
+    numbers = input_string.split()
+   
+    counter = 0
+    for num in numbers:
+        try:
+            doubly_linked_list.insertNode(counter, int(num))
+            counter += 1
+        except ValueError:
+            break
+   
+    print("\nBefore:", end=" ")
+    doubly_linked_list.printList()
+   
+    doubly_linked_list.head = reverseDoublyList(doubly_linked_list.head)
+    print("After:", end=" ")
+    doubly_linked_list.printList()

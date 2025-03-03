@@ -24,13 +24,6 @@ class stack():
         if(not self.head):
             return
         return self.head.data
-
-    def printWalk(self):
-        currNode = self.head
-        while(currNode):
-            print(currNode.data, end=" ")
-            currNode = currNode.next
-        print()
     
     def size(self):
         count = 0
@@ -112,9 +105,69 @@ def sortStack(St):
     
     #Could just push everything into list and sort and push into result st
 
+
+def infixToPostfix(infix):
+    operator = {'(':0, '*': 1, '/':1, '%':1, '+':2, '-':2, '<':3, '>':3, '&':4 ,'=':5}
+    opStack = stack()
+    # opStack.push('(')
+    # for ch in infix:
+    #     if(ch == '('):
+    #         opStack.push('(')
+    #     elif(ch not in operator):
+    #         print(ch, end="")
+    #     elif(ch == ')'):
+    #         while(opStack.head and opStack.head.data != '('):
+    #             print(opStack.pop(), end="")
+    #         opStack.pop()
+    #     elif(ch in operator):
+    #         while(opStack.head and operator[ch]<=operator[opStack.peek()]):
+    #             print(opStack.pop(), end="")
+    #         opStack.push(ch)
+    # while(opStack.head):
+    #     print(opStack.pop(), end="")
+    for ch in infix:
+        if(ch == '('):
+            opStack.push('(')
+        elif(ch==')'):
+            while(opStack.head and opStack.head.data!='('):
+                print(opStack.pop(), end="")
+        elif(ch not in operator):
+            print(ch, end="")
+        elif(ch in operator):
+            while(opStack.head and operator[ch]<operator[opStack.peek()]):
+                print(opStack.pop(), end="")
+            opStack.push(ch)
+    while(opStack.head):
+        print(opStack.pop(), end="")
+
+def evaluatePostfix(postfix):
+    st = stack()
+    evalNum = 0
+    for ch in postfix:
+        if(ch.isdigit()):
+            st.push(ch)
+        else:
+            if(ch=='+'):
+                evalNum = int(st.pop()) + int(st.pop())
+                st.push(evalNum)
+            elif(ch=='*'):
+                evalNum = int(st.pop()) * int(st.pop())
+                st.push(evalNum)
+            elif(ch=='/'):
+                secondNum = int(st.pop())
+                evalNum = int(st.pop()) / secondNum
+                st.push(evalNum)
+            elif(ch=='-'):
+                secondNum = int(st.pop())
+                evalNum = int(st.pop()) - secondNum
+                st.push(evalNum)
+    print(st.head.data)
+
+
+
 ######################Initialize#########################
 st = stack()
-for i in [1,2,3,4,100,6,7,567,9,0]:
+for i in [1,2,3,4,100,6,7,567,9,0,2,1,3,12,1]:
     st.push(i)
 print("Stack:", end=" ")
 printWalk(st)
@@ -137,3 +190,6 @@ printWalk(q)
 st = sortStack(st) #Qn3
 print("Qn 3) Sorted Stack:", end=" ")
 printWalk(st)
+
+infixToPostfix("1+2*3+4")
+evaluatePostfix("7 3 4 * 8 + 5 / -")

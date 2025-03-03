@@ -1,46 +1,26 @@
-import java.util.Scanner;
-
-public class sort {
-    // int list[];
-    int fk = 0;
-
-    public sort(int num) { //constructor
-        // this.list = list;
-        this.fk = num;
+public class sort{
+    public static void main(String[] args){
+        A a2 = new C1();
+        a2.print("Line2");
     }
-
-    // public void main(int[] list) {
-    //     System.out.println("hello---------------");
-    //     // bubble(list);
-    //     // for(int i=0; i<list.length; i++){
-    //     //     System.out.println(list[i]);
-    //     // }
-    //     System.out.printf("%.2f \n", 19.779);
-    //     String stringA = " Wild";
-
-    //     String stringB = " Irish ";
-
-    //     String stringC = "Rose";
-
-    //     String result = stringA.trim() + stringB + stringC.trim();
-    //     System.out.println(result);
-    // }
-
-    public void bubble(){
-        // for(int i=0; i<list.length; i++){
-        //     for(int j=0; j<list.length-1; j++){
-        //         if(list[i] < list[j]){
-        //             int temp = list[j];
-        //             list[j] = list[i];
-        //             list[i] = temp;
-        //         }
-        //     }
-        // }
-        fk+=3;
+    public static void print(String s){
+        System.out.println(s);
     }
+}
+class A {
+    public A(){
+        System.out.print("Good");
+    }
+    public void print(Object o){ //changing between Object type and String makes no sense
+        System.out.print("A");
+    }
+}
 
-    public sort copyObj(){
-        sort copy = new sort(fk);
-        return copy;
+class C1 extends A{
+    public C1(){
+        System.out.print("Great");
+    }
+    public void print(String s){ //It seem that the subclass has higher priority and string also has the priority
+        System.out.println("C1kjhkhkh");//However A gets called even thou it is superclass and is using object type
     }
 }

@@ -12,7 +12,7 @@ class DoublyLL:
         newNode = Node(data)
         newNode.next = self.head
         self.head = newNode
-        if(newNode.next):
+        if(newNode.next): #if LL is not empty
             newNode.next.pre = newNode
     
     def insertEnd(self, data):
@@ -67,7 +67,7 @@ class DoublyLL:
             curr += 1
         if(currNode.next):
             currNode.next = currNode.next.next
-            if(currNode.next):
+            if(currNode.next): #if node is not none
                 currNode.next.pre = currNode
         else:
             print("Didn't remove")

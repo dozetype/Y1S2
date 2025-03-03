@@ -56,6 +56,10 @@ void processString(char *str, int *totVowels, int *totDigits){
 //         s1[i+1] = '\0'; //making sure it a string
 //         i++;
 //     }
+//     while(i<n){ //Need bc fn wants padding so the size of array is same as specified length
+//         s1[i] = '\0';
+//         i++;
+//     }
 //     return s1;
 // }
 
@@ -86,10 +90,15 @@ void processString(char *str, int *totVowels, int *totDigits){
 //     return 0;
 // }
 // int stringcmp(char *s1, char *s2){
-//     int result = strcmp(s1, s2);
-//     if(result==0) return 0;
-//     else if(result<0) return -1;
-//     else return 1;
+//     while(*s1 || *s2){
+//         if(*s1 < *s2) return -1; //if curr ascii value for s1 is smaller
+//         else if(*s2 < *s1) return 1;
+//         else if(*s1=='\0') return -1; //if s1 has nothing its automatically smaller
+//         else if(*s2=='\0') return 1; 
+//         *s1++;
+//         *s2++;
+//     }
+//     return 0;
 // }
 
 ////////////////////////////////////////////////////////////////

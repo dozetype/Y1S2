@@ -75,13 +75,17 @@ class Stack:
 
 def balanced(expression):
     st = Stack()
-    counter = {'(': 0, ')': 0, '[': 0, ']': 0, '{': 0, '}': 0} 
     for ch in expression:
-        st.push(ch)
-    while(not st.isEmpty()):
-        counter[st.pop()] += 1
-    if(counter['(']!=counter[')'] or counter['[']!=counter[']'] or counter['{']!=counter['}']):
-        return False
+        if(ch in ['(', '[', '{']):
+            st.push(ch)
+        else:
+            if(ch == ')' and st.peek() != '('):
+                return False
+            elif(ch == ']' and st.peek() != '['):
+                return False
+            elif(ch == '}' and st.peek() != '{'):
+                return False
+            st.pop()
     return True
 
 

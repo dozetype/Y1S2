@@ -72,8 +72,8 @@ public class Lab2 {
         int x, y, ans, score=0;
         Scanner sc = new Scanner(System.in);
         for(int i=0; i<5; i++){
-            x = (int)(Math.random()*9)+1;
-            y = (int)(Math.random()*9)+1;
+            x = (int)(Math.random()*10);
+            y = (int)(Math.random()*10);
             System.out.println("How much is " + x + " times " + y + "?:");
             ans = sc.nextInt();
             if(ans == x*y){
@@ -84,14 +84,22 @@ public class Lab2 {
     }
 
     public static int divide(int m, int n){
-        return (int)(m/n);
+        int count = 0;
+        while(m-n>=0){
+            m-=n;
+            count++;
+        }
+        return count;
     }
 
     public static int modulus(int m, int n){
-        return (int)(m%n);
+        while(m-n>=0){ //m-=n if it will result in value >= 0
+            m-=n;
+        }
+        return m;
     }
 
-    public static int countDigits(int n){
+    public static int countDigits(int n){ //fn to count +ve digits 
         if(n<0) return -1;
         int count=0;
         while(n!=0){
@@ -105,10 +113,10 @@ public class Lab2 {
     public static int position(int n, int digit){
         int index=1;
         while(n>0){
-            if(n%10==digit){
+            if(n%10==digit){ //found the digit
                 return index;
             }
-            n/=10;
+            n/=10; //remove last digit in n
             index++;
         }
         return -1;
@@ -119,12 +127,12 @@ public class Lab2 {
         if(n<0) return -1;
 
         while(n>0){
-            if((n%10)%2==1){
-                result += (n%10)*multiply;
+            if((n%10)%2==1){ //check if last digit is odd
+                result += (n%10)*multiply; //add new odd found into front of result
                 multiply *= 10;
             }
-            n/=10;
+            n/=10; //remove last digit in n
         }
-        return result==0? -1 : result;
+        return result==0? -1 : result; //if result didn't change return -1
     }
 }
