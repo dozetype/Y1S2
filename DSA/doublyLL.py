@@ -81,7 +81,7 @@ class DoublyLL:
             current = current.next
         print(current.data)
 
-        while(current.pre):
+        while(current.pre): #walk Backwards
             print(current.data, end=" -> ")
             current = current.pre
         print(current.data)
@@ -92,5 +92,5 @@ for i in range(5):
 
 doubly.insertIndex(10,5)
 doubly.walkPrint()
-doubly.removeIndex(4)
-doubly.walkPrint()
+# doubly.removeIndex(4)
+# doubly.walkPrint()

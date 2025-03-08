@@ -1,0 +1,1 @@
+javac Labs/lab3/PlaneSeat.java Labs/lab3/Plane.java Labs/lab3/PlaneApp.java

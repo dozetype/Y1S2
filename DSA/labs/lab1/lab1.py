@@ -81,4 +81,3 @@ walkPrint(dupl)
 copy = copyll(head, None)
 print("copy of og: ")
 walkPrint(copy)
-

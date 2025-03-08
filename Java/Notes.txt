@@ -1,6 +1,9 @@
 static method cannot use instance var and methods, but converse works.
 
+Traversing: cd Name
+Go Back: cd ..
 
 compiling java file: javac bruh.java
 Running normal java: java bruh
 Running java thats in package: java package.bruh
+Ex. java Labs.lab2.lab2 | This is used to run lab2.java inside Labs/lab2

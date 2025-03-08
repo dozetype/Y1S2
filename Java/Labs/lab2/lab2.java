@@ -1,6 +1,7 @@
+package Labs.lab2;
 import java.util.Scanner;
 
-public class Lab2 {
+public class lab2 {
     public static void main(String[] args){
         int choice;
         int m, n;

@@ -189,8 +189,8 @@ class Queue:
 #Question 2 Level Order traversal(BFS)
 def levelOrderIterative(root):
     q = Queue()
-    q.enQueue(root)
-    while(q.ll.head):
+    q.enQueue(root) #root layer
+    while(q.ll.head): #while q not empty
         currNode = q.deQueue()
         print(currNode.item, end=" ")
         if(currNode.left):
