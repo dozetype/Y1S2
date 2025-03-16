@@ -7,3 +7,11 @@ compiling java file: javac bruh.java
 Running normal java: java bruh
 Running java thats in package: java package.bruh
 Ex. java Labs.lab2.lab2 | This is used to run lab2.java inside Labs/lab2
+
+
+Weakest     Uses-A: Dependacy, Normal Method Calling, temporary
+            Is-A: Inheritance, SuperClass, Child Class
+Strongest   Has-A: Association, Object Composition
+
+Aggregation eg player and a team, as the player can still live without the team. use diamond
+Composition eg person and their organs, the person can't live without their organs. use solid diamond 
