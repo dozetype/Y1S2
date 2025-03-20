@@ -1,44 +1,38 @@
 ///////// Student Info/////////
 //
-//           Your Name:__________
-//      Your NTU Email:__________
+//           Your Name: Chen Xing Wei
+//      Your NTU Email: C240155@e.ntu.edu.sg
 //
 //
 //
 
 #include <iostream>
-#include <cstring>
 using namespace std;
+
 // Function to get a valid integer input
 int getValidInt() {
     char dummy[50];
     int input = 0;
     bool valid = false;
     cin >> input;
-    while(cin.fail()) { // Check if input failed
+    while(cin.fail() || floor(input)!=input) { // Check if input failed
         cin.clear(); // Clear error state
-        cin.ignore(1000,'\n');//Discard invalid input
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');//Discard invalid input
         cout << "Invalid input! Please enter an integer: ";
         cin >> input;
     }
-    cin.getline(dummy, 50);
     return input;
+
 }
 
 // Function to get a valid float input
 float getValidFloat() {
-    char dummy[50];
-    float input = 0;
-    bool valid = false;
-    cin >> input;
-    while(cin.fail()) { // Check if input failed
-        cin.clear(); // Clear error state
-        cin.ignore(1000,'\n');//Discard invalid input
-        cout << "Invalid input! Please enter a valid float number: ";
-        cin >> input;
-    }
-    cin.getline(dummy, 50);
-    return input;
+
+    // TO-DO: Write your code here
+    //
+    //
+
+
 }
 
 int main() {

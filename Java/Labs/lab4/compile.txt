@@ -1,1 +1,16 @@
-javac Labs/lab4/Numbers.java Labs/lab4/Sorting.java
+Numbers
+javac Labs/lab4/Numbers.java Labs/lab4/Sorting.java Labs/lab4/Strings.java
+java Labs.lab4.Numbers
+java Labs.lab4.Strings
+
+Shape 2D
+javac Labs/lab4/Shape.java Labs/lab4/Shape2DApp.java
+java Labs.lab4.Shape2DApp
+
+Shape 3D
+javac Labs/lab4/Shape.java Labs/lab4/Shape3DApp.java
+java Labs.lab4.Shape3DApp
+
+SalePerson
+javac Labs/lab4/SalePerson.java Labs/lab4/WeeklySales.java
+java Labs.lab4.WeeklySales
