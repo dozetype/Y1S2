@@ -26,7 +26,7 @@ float calculate(float x, float y, char op){
     }
     else if(op == '/'){
         if(isZero(y)){
-            cout << "ERROR!";
+            cout << "Error: Division by zero!" << endl;
             return 0;
         }
         return x/y;

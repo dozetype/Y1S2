@@ -1,12 +1,13 @@
 ///////// Student Info/////////
 //
-//           Your Name: Chen Xing Wei
-//      Your NTU Email: C240155@e.ntu.edu.sg
+//           Your Name:Chen Xing Wei
+//      Your NTU Email:C240155@e.ntu.edu.sg
 //
 //
 //
 
 #include <iostream>
+#include <cstring> //need to include this for strcmp()
 using namespace std;
 
 // Function to get a valid integer input
@@ -15,24 +16,30 @@ int getValidInt() {
     int input = 0;
     bool valid = false;
     cin >> input;
-    while(cin.fail() || floor(input)!=input) { // Check if input failed
+    while(cin.fail()) { // Check if input failed
         cin.clear(); // Clear error state
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');//Discard invalid input
+        cin.ignore(1000,'\n');//Discard invalid input
         cout << "Invalid input! Please enter an integer: ";
         cin >> input;
     }
+    cin.getline(dummy, 50);
     return input;
-
 }
 
 // Function to get a valid float input
 float getValidFloat() {
-
-    // TO-DO: Write your code here
-    //
-    //
-
-
+    char dummy[50];
+    float input = 0;
+    bool valid = false;
+    cin >> input;
+    while(cin.fail()) {
+        cin.clear();
+        cin.ignore(1000,'\n');
+        cout << "Invalid input! Please enter a valid float number: ";
+        cin >> input;
+    }
+    cin.getline(dummy, 50);
+    return input;
 }
 
 int main() {

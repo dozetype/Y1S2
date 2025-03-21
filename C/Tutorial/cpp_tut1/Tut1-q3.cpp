@@ -2,15 +2,18 @@
 using namespace std;
 
 // TO-DO: Write your functions here
-double calArea(double side){
+template <typename T>
+T calArea(T side){
     return side*side;
 }
 
-double calArea(double length, double width){
+template <typename T>
+T calArea(T length, T width){
     return length*width;
 }
 
-double calArea(double base1, double base2, double height){
+template <typename T>
+T calArea(T base1, T base2, T height){
     return (base1+base2)/2 * height; //not accurate
 }
 

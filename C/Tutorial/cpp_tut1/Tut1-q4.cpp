@@ -1,77 +1,82 @@
-///////// Student Info/////////
-//
-//           Your Name:__________
-//      Your NTU Email:__________
-//
-//
-//
-
 #include <iostream>
-#include <cstring>
 using namespace std;
-// Function to get a valid integer input
-int getValidInt() {
-    char dummy[50];
-    int input = 0;
-    bool valid = false;
-    cin >> input;
-    while(cin.fail()) { // Check if input failed
-        cin.clear(); // Clear error state
-        cin.ignore(1000,'\n');//Discard invalid input
-        cout << "Invalid input! Please enter an integer: ";
-        cin >> input;
-    }
-    cin.getline(dummy, 50);
-    return input;
-}
 
-// Function to get a valid float input
-float getValidFloat() {
-    char dummy[50];
-    float input = 0;
-    bool valid = false;
-    cin >> input;
-    while(cin.fail()) { // Check if input failed
-        cin.clear(); // Clear error state
-        cin.ignore(1000,'\n');//Discard invalid input
-        cout << "Invalid input! Please enter a valid float number: ";
-        cin >> input;
+union Result {
+    int mark;
+    char grade; // Can be only 'A', 'B' or 'C'
+};
+
+struct Student {
+    char studentName[50];
+    bool isGrade;
+    int finalMark; // Used to store the final mark
+    Result res;
+
+    void convertGrade() { // A=90 , B=80, C=60
+        // TO-DO: Write your functions here
+        if(isGrade){
+            switch(res.grade){
+                case 'A':
+                    finalMark = 90;
+                    break;
+                case 'B':
+                    finalMark = 80;
+                    break;
+                case 'C':
+                    finalMark = 60;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else{
+            finalMark = res.mark;
+        }
     }
-    cin.getline(dummy, 50);
-    return input;
+};
+
+void displayStudentInfo(Student *students, int count) {
+    // TO-DO: Write your functions here
+    double total = 0;
+    cout << "\nStudent Results:" << endl;;
+    for(int i=0; i<count; i++){
+        cout << "Name: " << students[i].studentName << ", Final Mark: " << students[i].finalMark << endl;
+        total += students[i].finalMark;
+    }
+    cout << "\nAverage Final Mark: " << total/count << endl;
+
+
 }
 
 int main() {
-    char name[50];  // Student name
-    int studentID;  // Student ID
-    float mathMark; // Math mark
-
-    while (true) {
-        // Get student name
-        cout << "Enter student name (or enter '#' to exit): ";
-        cin.getline(name, 50);
-
-        // Check if user wants to exit
-        if (strcmp(name, "#") == 0) {
-            break;
+    // TO-DO: Write your functions here
+    int studentSize;
+    char gOrM;
+    cout << "How many students do you want to input?" << endl << "Enter student size: ";
+    cin >> studentSize;
+    cin.get(); //Remove '\n'
+    Student *studentArr = new Student[studentSize];
+    for(int i=0; i<studentSize; i++){
+        cout << "Enter student name: ";
+        cin.getline(studentArr[i].studentName, 50);
+        cout << "Enter 'G' if result is grade or 'M' if result is mark: ";
+        cin >> gOrM;
+        if(gOrM=='G' || gOrM=='g'){
+            studentArr[i].isGrade = true;
+            cout << "Enter grade (A,B,C): ";
+            cin >> studentArr[i].res.grade;
         }
-
-        // Get student ID
-        cout << "Enter student ID (integer): ";
-        studentID = getValidInt();
-
-        // Get math mark
-        cout << "Enter math mark (float): ";
-        mathMark = getValidFloat();
-
-        // Display student information
-        cout << "\nStudent Information:\n";
-        cout << "Name: " << name << endl;
-        cout << "Student ID: " << studentID << endl;
-        cout << "Math Mark: " << mathMark << endl;
-        cout << "-------------------------\n";
+        else{
+            cout << "Enter mark (0-100): ";
+            cin >> studentArr[i].res.mark;
+        }
+        studentArr[i].convertGrade();
+        cin.get();
     }
+    displayStudentInfo(studentArr, studentSize);
 
-    cout << "Program exited successfully." << endl;
+    //delete afterwards;
+    delete[] studentArr;
+    studentArr = nullptr;
     return 0;
 }
