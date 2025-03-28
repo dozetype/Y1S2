@@ -1,3 +1,5 @@
+import time
+import random
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -39,6 +41,16 @@ def merge_sort(arr):
             j += 1
             k += 1
 
-arr = [5,3,2,73,26,1,2,47,1,0]
-merge_sort(arr)
-print(arr)
+n = 10000  # Number of random numbers
+li = random.sample(range(1, 10100), n)
+li2 = li.copy()
+
+startTime = time.time()
+merge_sort(li)
+print(time.time()-startTime)
+# print(li)
+
+startTime = time.time()
+bubble_sort(li2)
+print(time.time()-startTime)
+# print(li2)

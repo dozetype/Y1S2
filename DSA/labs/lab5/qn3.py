@@ -32,4 +32,4 @@ for i in file:
                 max = curr[1]
         print(best)
         currSelection = []
-        print("\n\n")
+        print("\n")
