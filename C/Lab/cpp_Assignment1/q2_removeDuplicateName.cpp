@@ -42,12 +42,40 @@ void freeList(StringNode*& head) {
 // Remove duplicate names from the linked list
 void removeDuplicatedNames(StringNode*& head) {
     // TO-DO: Write Your Code Here
-    //
-    //
-    //
-
-
-
+    if(!head) return;
+    
+    StringNode* curr = head;
+    int size = 0;
+    for(; curr; curr=curr->next) //getting size
+        size++;
+    
+    std::string* store = new std::string[size];
+    int index = 0;
+    curr = head;
+    StringNode* prev = nullptr;
+    while(curr){
+        bool isInside = false;
+        for(int i=0; i<size; i++){
+            if(store[i] == curr->name){ //if name already seen
+                isInside = true;
+                break;
+            }
+        }
+        
+        if(isInside){ //if seen
+            if(curr->next) //if next is not nullptr
+                prev->next = curr->next;
+            else
+                prev->next = nullptr;
+        }
+        else{ //not seen. store the name, move prev ptr
+            store[index] = curr->name;
+            index++;
+            prev = curr;
+        }
+        curr = curr->next;//traverse
+    }
+    delete[] store;
 }
 
 int main() {
