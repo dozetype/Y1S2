@@ -43,16 +43,14 @@ void freeList(StringNode*& head) {
 void removeDuplicatedNames(StringNode*& head) {
     // TO-DO: Write Your Code Here
     if(!head) return;
-    
     StringNode* curr = head;
-    int size = 0;
-    for(; curr; curr=curr->next) //getting size
-        size++;
-    
+    int size = 0, index = 0;
+    for(; curr; curr=curr->next, size++){} //getting size
+
     std::string* store = new std::string[size];
-    int index = 0;
     curr = head;
     StringNode* prev = nullptr;
+
     while(curr){
         bool isInside = false;
         for(int i=0; i<size; i++){
@@ -76,6 +74,7 @@ void removeDuplicatedNames(StringNode*& head) {
         curr = curr->next;//traverse
     }
     delete[] store;
+    store = nullptr;
 }
 
 int main() {

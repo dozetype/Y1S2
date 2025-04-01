@@ -4,21 +4,14 @@
 ////// To-do: Write Your Code Here//////////////
 // Template function mergeArrays()  to merge two arrays
 template <typename T>
-void mergeArrays(T arr1, int size1, T arr2, int size2, T merged){
-    T newArr[size1 + size2];
-    std::cout << arr1 << std::endl;
-    std::cout << arr2 << std::endl;
-    std::cout << merged << std::endl;
-    std::cout << newArr << std::endl;
-    for(int i=0; i<size1; i++){
-        newArr[i] = &arr1[i];
-    }
-    for(int i=0; i<size2; i++){
-        newArr[i+size1] = &arr2[i];
-    }
-    for(int i=0; i<(size1+size2); i++){
-        std::cout << *(newArr[i]) << std::endl;
-    }
+void mergeArrays(T* arr1, int size1, T* arr2, int size2, T*& merged){
+    merged = new T[size1 + size2]; //Allocate memory
+    //Assigning Values
+    for(int i=0; i<size1; i++)
+        merged[i] = arr1[i];
+    
+    for(int i=0; i<size2; i++)
+        merged[i+size1] = arr2[i];
 }
 
 
@@ -27,9 +20,16 @@ void mergeArrays(T arr1, int size1, T arr2, int size2, T merged){
 // Template function printAndDeallocate() to print and deallocate the merged array
 template <typename T>
 void printAndDeallocate(T merged, int size){
-    // for(int i=0; i<3; i++){
-    //     cout << merged[i];
-    // }
+    //Printing
+    std::cout << "Merged Array: ";
+    for(int i=0; i<size; i++){
+        std::cout << merged[i] << " ";
+    }
+    std::cout << std::endl;
+    
+    //Deallocate
+    delete[] merged;
+    merged = nullptr;
 }
 
 
