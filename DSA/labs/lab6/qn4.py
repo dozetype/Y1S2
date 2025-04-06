@@ -39,6 +39,9 @@ def findMedianSortedArrays(nums1, nums2):
         maxLeftY = float('-inf') if partitionY == 0 else nums2[partitionY - 1]
         minRightY = float('inf') if partitionY == y else nums2[partitionY]
         
+
+        #checking if biggest element in left partition of A is smaller than smallest element in right partition of B
+        #checking if biggest element in left partition of B is smaller than smallest element in right partition of A
         if maxLeftX <= minRightY and maxLeftY <= minRightX:
             if (x + y) % 2 == 0:
                 return (max(maxLeftX, maxLeftY) + min(minRightX, minRightY)) / 2

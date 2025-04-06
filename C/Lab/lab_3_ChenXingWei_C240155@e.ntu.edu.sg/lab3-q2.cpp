@@ -18,7 +18,7 @@ public:
 
     // Overloading the + operator
     // TODO: Write Your Code Here
-    Complex operator+(const Complex& obj) const{
+    Complex operator+(const Complex& obj) const{ //const used to prevent changing any variable
         return Complex(real+obj.real, imag+obj.imag);
     } 
 
@@ -34,10 +34,10 @@ public:
         // TODO: Write Your Code Here
         
         if(c.imag>=0) //check if img num is +ve
-            out << c.real << " + " <<c.imag << "i";
+            out << c.real << " + " << c.imag << "i";
 
         else
-            out << c.real << " - " <<-1*c.imag << "i"; //*-1 to flip img num
+            out << c.real << " - " << -1*c.imag << "i"; //*-1 to flip img num
         return out;
     }
 };

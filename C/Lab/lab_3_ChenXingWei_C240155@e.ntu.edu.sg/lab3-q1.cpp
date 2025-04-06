@@ -20,7 +20,12 @@ public:
     Product(string productName, double productPrice) {
         //TO-DO: Write Your Code Here
         this->name = productName;
-        this->price = productPrice;
+        if(productPrice<0){
+            cout << "No Negative prices" << endl;
+            this->price = INT_MAX;
+        }
+        else
+            this->price = productPrice;
         cout << "Product created: " << this->name << " ($" << this->price << ")"<< endl;
 
     }
@@ -49,9 +54,8 @@ public:
             cout << "No Negative prices" << endl;
             return;
         }
-        else{
+        else
             this->price = newPrice;
-        }
     }
 };
 

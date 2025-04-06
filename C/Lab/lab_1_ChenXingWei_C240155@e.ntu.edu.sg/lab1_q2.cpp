@@ -14,7 +14,8 @@ bool isZero(float num, float epsilon = 1e-6) {
     return fabs(num) < epsilon;  // Check if num is very close to 0
 }
 
-float calculate(float x, float y, char op){
+template <typename T>
+float calculate(T x, T y, char op){
     if(op == '+'){
         return x+y;
     }
