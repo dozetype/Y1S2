@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a77b47cb-0866-4864-8be1-5ddd0f84c78e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../C/Lab/lab_1_ChenXingWei_C240155@e.ntu.edu.sg/lab1_q2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C/Lab/lab_1_ChenXingWei_C240155@e.ntu.edu.sg/lab1_q2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../C/Lab/lab_3_ChenXingWei_C240155@e.ntu.edu.sg/lab3-q1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C/Lab/lab_3_ChenXingWei_C240155@e.ntu.edu.sg/lab3-q1.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../C/Lab/lab_3_ChenXingWei_C240155@e.ntu.edu.sg/lab3-q2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C/Lab/lab_3_ChenXingWei_C240155@e.ntu.edu.sg/lab3-q2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DSA/labs/lab6.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../BTO_Project" beforeDir="false" afterPath="$PROJECT_DIR$/../../BTO_Project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LibrarySystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Library.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LibrarySystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LibrarySystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,21 +29,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "dozetype"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dozetype&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/JohnXW/Y1S2.git",
-    "accountId": "0458b4c2-970b-46e4-9ccb-1b312d33a367"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JohnXW/Y1S2.git&quot;,
+    &quot;accountId&quot;: &quot;0458b4c2-970b-46e4-9ccb-1b312d33a367&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2vLBvBm1WWa0ImZGnOjfyeUqYxa" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -49,31 +52,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.LibrarySystem.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/xw/Desktop/Y1S2/Java/Labs/lab5/src/main/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.LibrarySystem.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/xw/Desktop/Y1S2/Java/Labs/lab5/src/main/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -93,6 +99,12 @@
       <option name="presentableId" value="Default" />
       <updated>1743914701545</updated>
       <workItem from="1743914702546" duration="8490000" />
+      <workItem from="1744033097986" duration="874000" />
+      <workItem from="1744081139008" duration="603000" />
+      <workItem from="1744081773527" duration="8134000" />
+      <workItem from="1744111727754" duration="644000" />
+      <workItem from="1744112702179" duration="633000" />
+      <workItem from="1744120855806" duration="3547000" />
     </task>
     <servers />
   </component>

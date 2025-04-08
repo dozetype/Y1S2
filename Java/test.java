@@ -1,7 +1,17 @@
+
+import java.io.*;
+
 public class test {
     public static void main(String[] args){
-        for(int i=0; i<100; i++){
-            System.out.println((int)(Math.random()*10));
-        } 
+        try{
+            BufferedWriter obj = new BufferedWriter(new FileWriter("sampleFile.csv"));
+            obj.write("empName, empDesig, empAge\n");
+            obj.write("empName, empDesig, empAge\n");
+            obj.write("empName, empDesig, empAge\n");
+            obj.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
