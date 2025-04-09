@@ -18,17 +18,33 @@ public:
     ~PatientQueue(){}
 
     // TO-DO 1: Implement the function addPatient to add a new patient's name to the end of the queue
-    //
+    void addPatient(std::string name){
+        queue.push_back(name);
+    }
 
     // TO-DO 2: Implement the function servePatient: removes and returns the patient at the front of the queue
     // If the queue is empty, returns a reminder message
-    //
+    std::string servePatient(){
+        if(isEmpty()){
+            return "Empty queue!";
+        }
+        std::string patient = queue.front();
+        queue.pop_front();
+        return patient;
+    }
 
     // TO-DO 3: Implement the function isEmpty
-    //
+    bool isEmpty(){
+        return queue.empty()==0 ? false:true;
+    }
 
     // TO-DO 4: Implement the function displayQueue to print out all patients in order
-    //
+    void displayQueue(){
+        for(auto i : queue){
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    }
     
 };
 
