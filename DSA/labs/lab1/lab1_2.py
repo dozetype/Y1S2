@@ -41,27 +41,26 @@ def removeNode(ptrHead, index):
         return 1
 
 def split(head, ptrEvenList, ptrOddList):
-    evenHead = oddHead = None
-    evenTail = oddTail = None
-    currNode = head
+    evenHead = oddHead = evenTail = oddTail = None
+    curr = head
     index = 0
-    while(currNode):
-        if(index%2==0):
-            if(evenHead is None):
-                evenHead = Node(currNode.data)
+    while(curr):
+        if(index % 2 == 0):
+            if(evenHead == None):
+                evenHead = Node(curr.data)
                 evenTail = evenHead
             else:
-                evenTail.next = Node(currNode.data)
+                evenTail.next = Node(curr.data)
                 evenTail = evenTail.next
         else:
-            if(oddHead is None):
-                oddHead = Node(currNode.data)
+            if(oddHead == None):
+                oddHead = Node(curr.data)
                 oddTail = oddHead
             else:
-                oddTail.next = Node(currNode.data)
+                oddTail.next = Node(curr.data)
                 oddTail = oddTail.next
-        index+=1
-        currNode = currNode.next
+        curr = curr.next
+        index += 1
     ptrEvenList.append(evenHead)
     ptrOddList.append(oddHead)
 
@@ -78,6 +77,17 @@ def duplicateReverse(head, ptrNewHead):
         currNode = currNode.next
     return dup
 
+def revPor(head, left, right):
+    prev = None
+    curr = head
+    store = None
+    while(curr):
+        store = curr.next
+        curr.next = prev
+        prev = curr
+        curr = store
+    return prev
+
 
 head = None
 oddHead = []
@@ -90,10 +100,11 @@ head = insertNode(head, 4)
 head = insertNode(head, 5)
 head = insertNode(head, 6)
 head = insertNode(head, 7)
-removeNode(head, 2)
-# split(head, evenHead, oddHead)
-# walkPrint(oddHead[0])
-# walkPrint(evenHead[0])
+# removeNode(head, 2)
+split(head, evenHead, oddHead)
+walkPrint(oddHead[0])
+walkPrint(evenHead[0])
 # dup = duplicateReverse(head, dup)
-walkPrint(dup)
+# walkPrint(dup)
 walkPrint(head)
+revPor(head, 1, 6)

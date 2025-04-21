@@ -81,9 +81,9 @@ def removeBSTNode(node, value): #iterative appro
                     target = target.right
                 curr.item = target.item #replace the item
                 if(parent.left == target): #reconnect edge
-                    parent.left = target.left
+                    parent.left = target.left # 1 child case
                 else:
-                    parent.right = target.left
+                    parent.right = target.left #2 child case
             elif(curr.right): #check for right 
                 parent = curr
                 target = curr.right

@@ -58,7 +58,7 @@ def createInvalidBST():
     root = BTNode(5)
     root.left = BTNode(3)
     root.right = BTNode(7)
-    root.left.right = BTNode(4)  # Invalid: 6 is greater than parent 3
+    root.left.right = BTNode(6)  # Invalid: 6 is greater than parent 3
     return root
 
 if __name__ == "__main__":

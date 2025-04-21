@@ -22,7 +22,7 @@ def findNode(head, index):
     return cur
 
 def insertNode(ptrHead, index, value):
-    newNode = ListNode(value)
+    newNode = ListNode(value) #creating a new ptr
     if ptrHead is None:
         return newNode
     if index == 0:
@@ -52,14 +52,10 @@ def duplicateReverse(head, ptrNewHead):
     ptrNewHead[0] = None
     curr = head
     while(curr):
-        if(not ptrNewHead[0]):
-            ptrNewHead[0] = ListNode(curr.num)
-        else:
-            new = ListNode(curr.num)
-            new.next = ptrNewHead[0]
-            ptrNewHead[0] = new
+        newNode = ListNode(curr.num)
+        newNode.next = dupRevHead[0]
+        dupRevHead[0] = newNode
         curr = curr.next
-    # ptrNewHead.append(newLL)
 
 
 if __name__ == "__main__":

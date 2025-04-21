@@ -86,14 +86,14 @@ def has_higher_precedence(op1, op2, precedence=PRECEDENCE):
 
 def infix_to_postfix(expression):
     output = ""
-    st = Stack()
+    st = Stack() #used to store operators
     for char in expression:
         if(char.isdigit()):
             output += char + " "
         elif(char == '('):
             st.push('(')
         elif(char == ')'):
-            while(st.top and st.peek() != '('):
+            while(st.peek() != '('): #
                 output += st.pop() + " "
             st.pop()
         elif(char in PRECEDENCE):

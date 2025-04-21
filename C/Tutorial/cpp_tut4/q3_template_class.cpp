@@ -15,15 +15,26 @@ public:
 
     void setExamResult(T* array, int len) {
         // TO-DO: Set the exam result as the input array
-        //
+        if(result!=nullptr){ //freee any existing memory before assigning new values
+            delete[] result;
+        }
+
+        size = len;
+        result = new T[size];
+        for(int i=0; i<size; i++){
+            result[i] = array[i];
+        }
 
     }
 
 
     void updateResultAtOneLoc(int i, const T &newResult) {
         // TO-DO: Update the exam result at i-th location to new result
-        //
-        //
+        if(i<0 || i>=size){
+            cout << "OUt of the size" << endl;
+            return;
+        }
+
 
 
     }
@@ -31,14 +42,16 @@ public:
 
     void printExamResult() const {
         // TO-DO: Print all exam results
-        //
+        //forloop print
 
     }
 
     
     ~ExamResult() {
         // TO-DO: Destructor to free allocated memory
-        //
+        delete[] result;
+        result = nullptr;
+        size = 0;
 
     }
 };

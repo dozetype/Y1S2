@@ -14,7 +14,7 @@ class DoublyLL:
         self.head = newNode
         if(newNode.next): #if LL is not empty
             newNode.next.pre = newNode
-    
+
     def insertEnd(self, data):
         newNode = Node(data)
         if(not self.head): #if nothing in LL
@@ -31,7 +31,7 @@ class DoublyLL:
         if(index == 0):
             self.insertFront(data)
             return
-        
+
         pos = 0
         currNode = self.head
         while(currNode and pos<index-1): #try walk to desired index -1
@@ -46,7 +46,7 @@ class DoublyLL:
                 newNode.next.pre = newNode
         else:
             print("Didn't Insert")
-    
+
     def removeFirst(self):
         if(not self.head):
             return
@@ -67,7 +67,7 @@ class DoublyLL:
             curr += 1
         if(currNode.next):
             currNode.next = currNode.next.next
-            if(currNode.next): #if node is not none
+            if(currNode.next): #if not last node
                 currNode.next.pre = currNode
         else:
             print("Didn't remove")
@@ -90,7 +90,7 @@ doubly = DoublyLL()
 for i in range(5):
     doubly.insertEnd(i)
 
-doubly.insertIndex(10,5)
+doubly.insertIndex(10,4)
 doubly.walkPrint()
 # doubly.removeIndex(4)
 # doubly.walkPrint()

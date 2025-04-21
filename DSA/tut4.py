@@ -209,6 +209,57 @@ def preOrderIterative(root):
         if(currNode.left):
             st.push(currNode.left)
 
+def preOrderReccursive(root):
+    if(not root):
+        return
+    print(root.item, end=" ")
+    preOrderReccursive(root.left)
+    preOrderReccursive(root.right)
+
+def inOrderReccursive(root):
+    if(not root):
+        return
+    inOrderReccursive(root.left)
+    print(root.item, end=" ")
+    inOrderReccursive(root.right)
+
+def inOrderIterative(root):
+    st = Stack()
+    curr = root
+    while(curr or not st.isEmpty()):
+        if(curr):
+            st.push(curr)
+            curr = curr.left
+        else:
+            curr = st.pop()
+            print(curr.item, end=" ")
+            curr = curr.right
+
+def postOrderReccursive(root):
+    if(not root):
+        return
+    postOrderReccursive(root.left)
+    postOrderReccursive(root.right)
+    print(root.item, end=" ")
+
+def postOrderIterative(root):
+    st = Stack()
+    curr = root
+    while(True):
+        while(curr):
+            st.push(curr) #1 is used to check right, other used for printing
+            st.push(curr)
+            curr = curr.left
+        
+        if(st.isEmpty()):
+            return
+        
+        curr = st.pop()
+        if(st.ll.head and st.peek()==curr):
+            curr = curr.right
+        else:
+            print(curr.item, end=" ")
+            curr = None
 
 if __name__ == "__main__":
     root = None
@@ -236,3 +287,8 @@ if __name__ == "__main__":
     levelOrderIterative(root)
     print()
     preOrderIterative(root)
+    preOrderReccursive(root)
+    print("\nbruh")
+    postOrderReccursive(root)
+    print()
+    postOrderIterative(root)

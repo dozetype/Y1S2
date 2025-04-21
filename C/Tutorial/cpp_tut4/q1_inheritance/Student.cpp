@@ -9,6 +9,7 @@ Student::Student(string n, int a, int id) : Person(n, a) {
 
 void Student::displayInfo() const {
     // TODO: Output Student Information
+    Person::displayInfo(); //this will call baseclass, else we can write long cout to dispaly all info
     cout << studentID;
 
 

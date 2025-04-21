@@ -3,15 +3,14 @@
 using namespace std;
 
 // TODO: Implement Person class constructor and function here
-Person::Person(string n, int a) {
+Person::Person(string n, int a){
     // TODO: Initialize member variables
-    string name = n;
-    int age = a;
-
+    name = n;
+    age = a;
 }
 
 void Person::displayInfo() const {
     // TODO: Display person's details
-    cout << name << endl;
+    cout << name << "  " << age << endl;
 
 }

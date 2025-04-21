@@ -9,10 +9,10 @@ def reverse_between(head: ListNode, left: int, right: int) -> ListNode:
 
     dummy = ListNode(0)
     dummy.next = head
-    prev = dummy
+    prev = head
 
     # Step 1: Move `prev` to the node before `left`
-    for _ in range(left - 1):
+    for _ in range(left - 2):
         prev = prev.next
 
     # Step 2: Reverse the sublist from left to right
@@ -25,7 +25,7 @@ def reverse_between(head: ListNode, left: int, right: int) -> ListNode:
         next_node.next = prev.next
         prev.next = next_node
 
-    return dummy.next
+    return head
 
 # Helper function to print the linked list
 def print_list(head):

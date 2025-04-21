@@ -25,9 +25,7 @@ def mirrorTree(node):
         return
     mirrorTree(node.left)
     mirrorTree(node.right)
-    temp = node.left
-    node.left = node.right
-    node.right = temp
+    node.left, node.right = node.right, node.left
 
 if __name__ == "__main__":
     root = BTNode(4)
