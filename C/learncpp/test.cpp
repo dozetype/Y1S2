@@ -1,53 +1,39 @@
+#include <cassert> // for assert
 #include <iostream>
 
-double calulateNetForce(double);
-double currAirResistance(double);
-double currVel(double, double);
-
-constexpr double gravity = 9.81;
-constexpr double height = 100;
-constexpr double mass = 69;
-constexpr double airDensity = 1.225; //general
-constexpr double dragCoeff = 1.0; //how aerodynamic the thing is
-constexpr double crossSectional = 0.7; //standing flat
-
-
-double terminalVel = sqrt((2*mass*gravity) / (airDensity*dragCoeff*crossSectional));
-
-//N
-double calculateNetForce(const double vel) {
-    return mass*gravity - currAirResistance(vel);
-}
-
-//N
-double currAirResistance(double vel) {
-    return 0.5 * airDensity * dragCoeff * crossSectional * pow(vel, 2);
-}
-
-double currVel(double time) {
-    return terminalVel * tanh( sqrt((0.5 * gravity * airDensity * dragCoeff * crossSectional) / mass) * time);
-}
-
-double timeFalling(double height) {
-    return terminalVel/gravity * acosh( exp( (gravity*height) / pow(terminalVel, 2) ) );
-}
-
-double stoppingDistance = 0.01;
-double endingForce(double vel) {
-    return 0.5 * mass * pow(vel, 2) / stoppingDistance;
-}
-int main() {
-    // std::cout << "The terminal velocity is: " << terminalVel << "m/s \n\n";
-    // std::cout << "Enter what height to jump at: ";
-    // double h{};
-    // std::cin >> h;
-    // std::cout << "The ending velocity when jumping from " << h << ": ";
-    // double endingVel = currVel(timeFalling(h));
-    // std::cout << endingVel << "m/s \n";
-    // std::cout << "The impact force when landing: " << endingForce(endingVel) << "N \n";
-    std::cout << "terminal: " << terminalVel << std::endl;
-    for (int i=0; i<100; i+=4) {
-        double endingVel = currVel(timeFalling(i));
-        std::cout << "Height: " << i << "m Ending Vel: " << endingVel << "m/s Force: " << endingForce(endingVel) << "N \n";
+bool isPrime(int x)
+{
+    if (x<=1) return false;
+    if (x == 2) return true;
+    if (x%2 == 0) return false;
+    for (int i=3; i*i<=x; i+=2) {
+        if (x%i==0) return false;
     }
+    return true;
+
+}
+
+int main()
+{
+    assert(!isPrime(0)); // terminate program if isPrime(0) is true
+    assert(!isPrime(1));
+    assert(isPrime(2));  // terminate program if isPrime(2) is false
+    assert(isPrime(3));
+    assert(!isPrime(4));
+    assert(isPrime(5));
+    assert(isPrime(7));
+    assert(!isPrime(9));
+    assert(isPrime(11));
+    assert(isPrime(13));
+    assert(!isPrime(15));
+    assert(!isPrime(16));
+    assert(isPrime(17));
+    assert(isPrime(19));
+    assert(isPrime(97));
+    assert(!isPrime(99));
+    assert(isPrime(13417));
+
+    std::cout << "Success!\n";
+
+    return 0;
 }
