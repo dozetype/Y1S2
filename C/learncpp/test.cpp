@@ -1,39 +1,21 @@
-#include <cassert> // for assert
 #include <iostream>
 
-bool isPrime(int x)
-{
-    if (x<=1) return false;
-    if (x == 2) return true;
-    if (x%2 == 0) return false;
-    for (int i=3; i*i<=x; i+=2) {
-        if (x%i==0) return false;
-    }
-    return true;
+class  obj {
+public:
+    obj(){std::cout << 1 <<std::endl;}
+    obj(const obj&) { std::cout << 2 << std::endl; }
+    void operator=(const obj&) const { std::cout << 3 << std::endl; }
+};
 
-}
-
-int main()
-{
-    assert(!isPrime(0)); // terminate program if isPrime(0) is true
-    assert(!isPrime(1));
-    assert(isPrime(2));  // terminate program if isPrime(2) is false
-    assert(isPrime(3));
-    assert(!isPrime(4));
-    assert(isPrime(5));
-    assert(isPrime(7));
-    assert(!isPrime(9));
-    assert(isPrime(11));
-    assert(isPrime(13));
-    assert(!isPrime(15));
-    assert(!isPrime(16));
-    assert(isPrime(17));
-    assert(isPrime(19));
-    assert(isPrime(97));
-    assert(!isPrime(99));
-    assert(isPrime(13417));
-
-    std::cout << "Success!\n";
-
-    return 0;
+int main() {
+    obj a; //1
+    obj b{}; //1
+    obj c(); //Compiler sees this as a function declaration
+    obj d = a; //2
+    d=b; //3
+    auto e = obj{}; //1
+    obj f{a}; //2
+    obj g(a); //2
+    auto h = b; //2
+    obj(sajfl); //1
 }
